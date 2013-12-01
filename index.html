@@ -1,29 +1,82 @@
 <html>
+<script src = "jquery-1.10.2.min.js"></script>
 This Cantonese test is created by Kelvin Au. <br>
 It is intended to test your Cantonese level in speaking and reading.<br>
 This test will take approximately 5-10 minutes.123123
 
 Test Start
-<form name="input" id ="input" action="check.php" method="post">
+<div>
 1. How to say the following sentence: "你好"<br>
-<input type="radio" name=“hi” id = "hi" value="nei5 hou2">nei5 hou2<br>
+<input type="radio" name="hi" id = "hi" value="nei5 hou2">nei5 hou2<br>
 <input type="radio" name="hi" id = "hi" value="nei3 hou1">nei3 hou1<br>
-<input type="radio" name="hi" id = "hi" value="nei3 hou1">nei4 hou3<br>
-<input type="radio" name="hi" id = "hi" value="nei3 hou1">nei2 hou4<br>
+<input type="radio" name="hi" id = "hi" value="nei4 hou3">nei4 hou3<br>
+<input type="radio" name="hi" id = "hi" value="nei2 hou4">nei2 hou4<br>
 <br>
 2. How to say the following sentence: "我想瞓覺"<br>
-<input type="radio" name="sleep" id = "sleep" value="ngo3 soeng3 fan2 gaau1">ngo3 soeng3 fan2 gaau1<br>
+<input type="radio" name="sleep" id = "sleep"  value="ngo3 soeng3 fan2 gaau1">ngo3 soeng3 fan2 gaau1<br>
 <input type="radio" name="sleep" id = "sleep"  value="ngo5 soeng2 fan3 gaau3">ngo5 soeng2 fan3 gaau3<br>
 <input type="radio" name="sleep" id = "sleep"  value="ngo2 soeng1 fan4 gaau5">ngo2 soeng1 fan4 gaau5<br>
-<input type="radio" name="sleep" id = "sleep"  value="ngo2 soeng1 fan4 gaau5">ngo2 soeng5 fan5 gaau2<br
+<input type="radio" name="sleep" id = "sleep"  value="ngo2 soeng1 fan4 gaau5">ngo2 soeng5 fan5 gaau2<br>
 <br>
-</form>
+</div>
 
 <button onclick ="result()">Submit</button>
 <script>
   function result(){
-    alert("");
+	var total = 2;
+	var result = 0;
+    if ($("input[name=hi]:checked").val() == "nei5 hou2")
+    	result++;
+    if ($("input[name=sleep]:checked").val() == "ngo5 soeng2 fan3 gaau3")
+    	result++;
+    sendRequest('result.txt',handleRequest);
   }
   
+  
+  function sendRequest(url,callback,postData) {
+		var req = createXMLHTTPObject();
+		if (!req) return;
+		var method = (postData) ? "POST" : "GET";
+		req.open(method,url,true);
+		req.setRequestHeader('User-Agent','XMLHTTP/1.0');
+		if (postData)
+			req.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+		req.onreadystatechange = function () {
+			if (req.readyState != 4) return;
+			if (req.status != 200 && req.status != 304) {
+//				alert('HTTP error ' + req.status);
+				return;
+			}
+			callback(req);
+		}
+		if (req.readyState == 4) return;
+		req.send(postData);
+	}
+
+	var XMLHttpFactories = [
+		function () {return new XMLHttpRequest()},
+		function () {return new ActiveXObject("Msxml2.XMLHTTP")},
+		function () {return new ActiveXObject("Msxml3.XMLHTTP")},
+		function () {return new ActiveXObject("Microsoft.XMLHTTP")}
+	];
+
+	function createXMLHTTPObject() {
+		var xmlhttp = false;
+		for (var i=0;i<XMLHttpFactories.length;i++) {
+			try {
+				xmlhttp = XMLHttpFactories[i]();
+			}
+			catch (e) {
+				continue;
+			}
+			break;
+		}
+		return xmlhttp;
+	}
+	
+	  function handleRequest(req) {
+			var writeroot = "123";
+			writeroot.innerHTML = req.responseText;
+		}
 </script>
 </html>
