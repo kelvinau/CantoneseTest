@@ -7,7 +7,7 @@ if ($hi == "nei5 hou2")
   $result++; 
   
 $sleep = $_POST['sleep'];
-if ($hi == "ngo5 soeng2 fan3 gaau3")
+if ($sleep == "ngo5 soeng2 fan3 gaau3")
   $result++;
 
 echo "Result: ".($result/$total)*100."%";
