@@ -6,18 +6,24 @@ This test will take approximately 5-10 minutes.123123
 Test Start
 <form name="input" id ="input" action="check.php" method="post">
 1. How to say the following sentence: "你好"<br>
-<input type="radio" name=“hi” value="nei5 hou2">nei5 hou2<br>
-<input type="radio" name="hi" value="nei3 hou1">nei3 hou1<br>
-<input type="radio" name="hi" value="nei3 hou1">nei4 hou3<br>
-<input type="radio" name="hi" value="nei3 hou1">nei2 hou4<br>
+<input type="radio" name=“hi” id = "hi" value="nei5 hou2">nei5 hou2<br>
+<input type="radio" name="hi" id = "hi" value="nei3 hou1">nei3 hou1<br>
+<input type="radio" name="hi" id = "hi" value="nei3 hou1">nei4 hou3<br>
+<input type="radio" name="hi" id = "hi" value="nei3 hou1">nei2 hou4<br>
 <br>
 2. How to say the following sentence: "我想瞓覺"<br>
-<input type="radio" name="sleep" value="ngo3 soeng3 fan2 gaau1">ngo3 soeng3 fan2 gaau1<br>
-<input type="radio" name="sleep" value="ngo5 soeng2 fan3 gaau3">ngo5 soeng2 fan3 gaau3<br>
-<input type="radio" name="sleep" value="ngo2 soeng1 fan4 gaau5">ngo2 soeng1 fan4 gaau5<br>
-<input type="radio" name="sleep" value="ngo2 soeng1 fan4 gaau5">ngo2 soeng5 fan5 gaau2<br
+<input type="radio" name="sleep" id = "sleep" value="ngo3 soeng3 fan2 gaau1">ngo3 soeng3 fan2 gaau1<br>
+<input type="radio" name="sleep" id = "sleep"  value="ngo5 soeng2 fan3 gaau3">ngo5 soeng2 fan3 gaau3<br>
+<input type="radio" name="sleep" id = "sleep"  value="ngo2 soeng1 fan4 gaau5">ngo2 soeng1 fan4 gaau5<br>
+<input type="radio" name="sleep" id = "sleep"  value="ngo2 soeng1 fan4 gaau5">ngo2 soeng5 fan5 gaau2<br
 <br>
-
-<input type="submit" value="Submit">
 </form>
+
+<button onclick ="result()">Submit</button>
+<script>
+  function result(){
+    alert("");
+  }
+  
+</script>
 </html>
