@@ -11,4 +11,5 @@ if ($hi == "ngo5 soeng2 fan3 gaau3")
   $result++;
 
 echo "Result: ".($result/$total)*100."%";
+echo "testing";
 ?>
