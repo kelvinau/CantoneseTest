@@ -1,4 +1,4 @@
-<?
+<?php
 $total = 2;
 $result = 0;
 
